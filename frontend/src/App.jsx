@@ -1,5 +1,6 @@
 
-import ImageCarosole from "./carousole/imageCarousole"
+import ImageCarosole from "./components/carosole/carosoleSlide"
+
 
 
 

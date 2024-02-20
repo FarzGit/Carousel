@@ -52,6 +52,10 @@ function adminHome() {
 
             </div>
 
+            <div className='button-div'>
+                <button className='btn font-medium p-1 rounded-md'>Launch</button>
+            </div>
+
 
         </>
 

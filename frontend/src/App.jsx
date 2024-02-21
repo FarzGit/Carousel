@@ -1,26 +1,24 @@
 
-import ImageCarosole from "./components/carosole/carosoleSlide"
-import AdminHome from "./components/adminHome/adminHome"
-import AdminLogin from "./components/adminLogin/adminLogin"
-import {BrowserRouter as Router,Routes,Route } from 'react-router-dom'
+
+
+
+
+import  {Outlet} from 'react-router-dom'
+import AdminNavBar from './components/adminNavBar/AdminNavBar'
+import VideoLoop from './components/videoComponent/videoComponent'
+// import ImageCarousel from './components/carosole/carosoleSlide'
 
 
 function App() {
 
   return (
     <>
-    <Router>
-      <Routes>
+     {/* <AdminNavBar/>
+     <Outlet/> */}
+     <VideoLoop/>
 
-        <Route path="/user" element={<ImageCarosole/>} />
-        <Route path="/admin" element={<AdminHome/>} />
-        <Route path="/admin-login" element={<AdminLogin/>} />
-
-
-      </Routes>
-    </Router>
-      {/* <ImageCarosole/> */}
-      {/* <AdminHome/> */}
+     
+      
     </>
   )
 }

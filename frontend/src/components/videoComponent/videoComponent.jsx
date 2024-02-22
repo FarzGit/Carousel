@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from "axios"
+import  { useState, useEffect } from 'react';
+
+import axios from 'axios'
 
 const VideoLoop = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -29,8 +30,8 @@ const VideoLoop = () => {
 
   useEffect(()=>{
     const getVideos =() =>{
-      axios.get("http://localhost:8000/api/videos/").then(res=>{
-        const videos = res.data.map(i=>'http://localhost:8000/'+i.video_file)
+      axios.get("https://carousal-backend.onrender.com/api/videos/").then(res=>{
+        const videos = res.data.map(i=>'https://carousal-backend.onrender.com'+i.video_file)
         console.log(videos)
         setvideoUrls(videos)
         

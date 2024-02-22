@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter,createRoutesFromElements,Route,RouterProvider} from 'react-router-dom'
-import ImageCarosole from "./components/carosole/carosoleSlide"
-import AdminHome from "./components/adminHome/adminHome"
+import AdminHome from "./components/adminHome/imageUpload.jsx"
+import VideoLoop from './components/videoComponent/videoComponent'
+
 import AdminLogin from "./components/adminLogin/adminLogin"
 import AdminVedioList from './components/adminVedioList/adminVedioList.jsx'
 
@@ -12,10 +13,10 @@ import AdminVedioList from './components/adminVedioList/adminVedioList.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App/>}>
-       <Route path="/user" element={<ImageCarosole/>} />
+       <Route path="/user" element={<VideoLoop/>} />
         <Route path="/admin-login" element={<AdminLogin/>} />
           
-        <Route path="/admin" element={<AdminHome/>} />
+        <Route path="/image-Upload" element={<AdminHome/>} />
         <Route  path="/admin-list" element={<AdminVedioList/>} />
         
     </Route>

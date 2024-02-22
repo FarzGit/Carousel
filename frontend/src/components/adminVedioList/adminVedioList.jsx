@@ -1,9 +1,14 @@
-import AdminNavBar from "../adminNavBar/AdminNavBar";
+
+
 
 function adminVedioList() {
 
     return (
+    
+        
         <div className="">
+     
+
             {/* <span className="text-xl font-bold absolute mt-4 ml-5">Welcome Admin</span>
             <div className="w-full flex justify-end">
                 <button className="h-10 w-20 hover:bg-red-700 bg-black rounded-lg text-white hover:scale-105 mr-10 mt-5">Log Out</button>
@@ -32,7 +37,7 @@ function adminVedioList() {
                         </thead>
                         <tbody>
                             <tr className="border-b border-gray-300">
-                            <td className="border-r border-gray-300 p-3 font-medium">1.</td>
+                            <td className="border-r border-gray-300 p-3 font-medium">1</td>
 
                                 <td className="border-r border-gray-300 p-3 ">sdfgsdfg</td>
                                 <td className="flex justify-center p-2">
@@ -49,12 +54,9 @@ function adminVedioList() {
                         </tbody>
                     </table>
                 </div>
-
-
-
-
             </div>
         </div>
+        
     );
 }
 

@@ -1,5 +1,8 @@
-import React from 'react'
+
+import { Link } from 'react-router-dom'
+
 import './adminNavbar.css'
+
 
 function AdminNavBar(){
 
@@ -11,8 +14,8 @@ function AdminNavBar(){
                 <div className="h-[65px] w-[100%] bg-white">
 
                     <div className="h-[65px] w-[100%] flex justify-center items-center space-x-4">
-                        <span className="font-medium cursor-pointer" >Home</span>
-                        <span className="font-medium cursor-pointer">Upload</span>
+                        <Link to="/admin-list" className="font-medium cursor-pointer" >Home</Link>
+                        <Link to="/image-Upload" className="font-medium cursor-pointer">Upload</Link>
 
                     </div>
 
@@ -25,4 +28,4 @@ function AdminNavBar(){
     )
 }
 
-export default React.memo(AdminNavBar)
+export default AdminNavBar

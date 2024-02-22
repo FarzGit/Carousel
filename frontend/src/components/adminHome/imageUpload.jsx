@@ -3,6 +3,8 @@ import { useState } from 'react';
 import './adminHome.css'
 
 
+
+
 function adminHome() {
 
     const [selectedVideo, setSelectedVideo] = useState(null);
@@ -40,6 +42,10 @@ function adminHome() {
 
                 </div>
             </div>
+
+            <div className='flex justify-center'>
+                <input className='h-[40px] ml-[10px] mr-[10px] p-2 w-[350px] rounded-md mt-[20px] '  type="text" placeholder='Enter Video Title' />
+            </div>
             <div className='vedio-div'>
 
 
@@ -51,6 +57,8 @@ function adminHome() {
                 )}
 
             </div>
+
+            
 
             <div className='button-div'>
                 <button className='btn font-medium p-1 rounded-md'>Launch</button>

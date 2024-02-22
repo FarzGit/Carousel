@@ -1,22 +1,45 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useState } from 'react';
 import './adminHome.css'
-
-
+import axios from 'axios';
+import AdminNavBar from '../adminNavBar/AdminNavBar';
+import { useNavigate } from 'react-router-dom';
 
 
 function adminHome() {
 
     const [selectedVideo, setSelectedVideo] = useState(null);
-
+    const [title, setTitle] = useState('');
+    
+const navigate = useNavigate()
     const handleFileChange = (event) => {
-        setSelectedVideo(URL.createObjectURL(event.target.files[0]));
+        setSelectedVideo(event.target.files[0]);
     };
 
+    const handleTitleChange = (event) => {
+        setTitle(event.target.value);
+    };
+
+
+    const handleSubmit = async () => {
+        try {
+            const formData = new FormData();
+            formData.append('video_file', selectedVideo);
+            formData.append('title', title);
+
+            const response = await axios.post('https://carousal-backend.onrender.com/api/upload/', formData);
+
+            console.log(response.data); 
+            navigate('/admin-list')
+        } catch (error) {
+            console.error('Error posting video and title:', error);
+        }
+    };
 
     return (
 
         <>
+         <AdminNavBar/>
             <div className=' main flex justify-center m-3 '>
 
 
@@ -44,14 +67,14 @@ function adminHome() {
             </div>
 
             <div className='flex justify-center'>
-                <input className='h-[40px] ml-[10px] mr-[10px] p-2 w-[350px] rounded-md mt-[20px] '  type="text" placeholder='Enter Video Title' />
+                <input onChange={handleTitleChange} value={title} className='h-[40px] ml-[10px] mr-[10px] p-2 w-[350px] rounded-md mt-[20px] '  type="text" placeholder='Enter Video Title' />
             </div>
             <div className='vedio-div'>
 
 
                 {selectedVideo && (
                     <video width="300" height="200" controls>
-                        <source src={selectedVideo} type="video/mp4" />
+                        <source src={URL.createObjectURL(selectedVideo)} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                 )}
@@ -61,7 +84,7 @@ function adminHome() {
             
 
             <div className='button-div'>
-                <button className='btn font-medium p-1 rounded-md'>Launch</button>
+                <button onClick={handleSubmit} className='btn font-medium p-1 rounded-md'>Launch</button>
             </div>
 
 

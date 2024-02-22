@@ -1,18 +1,53 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import AdminNavBar from '../adminNavBar/AdminNavBar';
 
 
 function adminVedioList() {
 
-    return (
-    
-        
-        <div className="">
-     
+    const [videos, setVideos] = useState([]);
 
-            {/* <span className="text-xl font-bold absolute mt-4 ml-5">Welcome Admin</span>
-            <div className="w-full flex justify-end">
-                <button className="h-10 w-20 hover:bg-red-700 bg-black rounded-lg text-white hover:scale-105 mr-10 mt-5">Log Out</button>
-            </div> */}
+
+
+    useEffect(() => {
+
+        axios.get('https://carousal-backend.onrender.com/api/videos/')
+            .then(response => {
+
+                setVideos(response.data);
+            })
+
+            .catch(error => {
+                console.error('Error fetching title:', error);
+            });
+    }, []);
+
+    const handleDelete = async (id) => {
+        try {
+            // Make DELETE request to your API
+            await axios.delete(`https://carousal-backend.onrender.com/api/videos/${id}/`);
+            // After successful deletion, fetch the updated data
+            const response = await axios.get('https://carousal-backend.onrender.com/api/videos/');
+            setVideos(response.data);
+        } catch (error) {
+            console.error('Error deleting video:', error);
+        }
+    };
+
+
+
+    return (
+
+        <>
+
+        <AdminNavBar/>
+
+        <div className="">
+
+
+
             <div className="flex items-center justify-center mt-20">
                 <div className="overflow-x-auto h-3/5 w-3/5 max-lg:w-ful p-5 max-lg:px-4 rounded-md border-2 shadow-md bg-white">
                     <div className="flex justify-around max-sm:grid items-center">
@@ -27,7 +62,7 @@ function adminVedioList() {
                     <table className="min-w-full bg-white border border-gray-300 mt-3">
                         <thead>
                             <tr className="bg-gray-100">
-                            <th className="border border-gray-300 p-2 justify-center">sl.no</th>
+                                <th className="border border-gray-300 p-2 justify-center">sl.no</th>
 
                                 <th className="border border-gray-300 p-2 justify-center">Name</th>
                                 <th className="border border-gray-300 p-2 flex items-center justify-center">
@@ -36,27 +71,32 @@ function adminVedioList() {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className="border-b border-gray-300">
-                            <td className="border-r border-gray-300 p-3 font-medium">1</td>
+                            {videos.map((video, index) => (
 
-                                <td className="border-r border-gray-300 p-3 ">sdfgsdfg</td>
-                                <td className="flex justify-center p-2">
+                                <tr key={index} className="border-b border-gray-300">
+                                    <td className="border-r border-gray-300 p-3 font-medium">1</td>
+
+                                    <td className="border-r border-gray-300 p-3 ">{video.title}</td>
+                                    <td className="flex justify-center p-2">
 
 
-                                    <button
-                                        className=" h-10 w-20 hover:bg-red-700 bg-black rounded-lg text-white hover:scale-105"
-                                    >
-                                        Delete
-                                    </button>
+                                        <button
+                                            onClick={() => handleDelete(video.id)}
+                                            className=" h-10 w-20 hover:bg-red-700 bg-black rounded-lg text-white hover:scale-105"
+                                        >
+                                            Delete
+                                        </button>
 
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                            ))}
+
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        
+        </>
     );
 }
 

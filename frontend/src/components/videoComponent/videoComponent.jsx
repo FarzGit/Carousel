@@ -26,7 +26,7 @@ const VideoLoop = () => {
       videoElement.removeEventListener('ended', handleEnded);
       console.log("Exited")
     };
-  }, [currentVideoIndex, videoUrls]);
+  }, [ videoUrls]);
 
   useEffect(()=>{
     const getVideos =() =>{

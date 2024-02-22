@@ -26,11 +26,14 @@ function adminVedioList() {
 
     const handleDelete = async (id) => {
         try {
-            // Make DELETE request to your API
-            await axios.delete(`https://carousal-backend.onrender.com/api/videos/${id}/`);
-            // After successful deletion, fetch the updated data
-            const response = await axios.get('https://carousal-backend.onrender.com/api/videos/');
-            setVideos(response.data);
+
+            const confirmDelete = window.confirm('Are you sure you want to delete this item?');
+
+            if(confirmDelete){
+                await axios.delete(`https://carousal-backend.onrender.com/api/videos/${id}/`);
+                const response = await axios.get('https://carousal-backend.onrender.com/api/videos/');
+                setVideos(response.data);
+            }
         } catch (error) {
             console.error('Error deleting video:', error);
         }
@@ -74,7 +77,7 @@ function adminVedioList() {
                             {videos.map((video, index) => (
 
                                 <tr key={index} className="border-b border-gray-300">
-                                    <td className="border-r border-gray-300 p-3 font-medium">1</td>
+                                    <td className="border-r border-gray-300 p-3 font-medium">{index+1}</td>
 
                                     <td className="border-r border-gray-300 p-3 ">{video.title}</td>
                                     <td className="flex justify-center p-2">

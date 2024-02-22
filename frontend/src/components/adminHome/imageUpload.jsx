@@ -4,6 +4,8 @@ import './adminHome.css'
 import axios from 'axios';
 import AdminNavBar from '../adminNavBar/AdminNavBar';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 
 
 function adminHome() {
@@ -23,6 +25,20 @@ const navigate = useNavigate()
 
     const handleSubmit = async () => {
         try {
+
+        if (!title.trim()) {
+            toast.error('Title is required.');
+            return;
+        }
+
+        if (!selectedVideo) {
+            toast.error('Video is required.');
+            return;
+        }
+
+
+
+
             const formData = new FormData();
             formData.append('video_file', selectedVideo);
             formData.append('title', title);

@@ -2,6 +2,7 @@ import  { useState, useEffect } from 'react';
 
 import axios from 'axios'
 
+
 const VideoLoop = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [videoUrls, setvideoUrls] = useState([])
@@ -41,10 +42,14 @@ const VideoLoop = () => {
   },[])
 
   return (
-    <video id="video" width={"100%"} autoPlay muted >
+    <div className="w-full h-screen flex justify-center items-center">
+
+    <video id="video" className="w-full h-full object-cover"  autoPlay muted >
       <source src={videoUrls[currentVideoIndex]} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
+
+    </div>
   );
 };
 

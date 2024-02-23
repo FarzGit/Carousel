@@ -56,7 +56,7 @@ function adminVedioList() {
                     <div className="flex justify-around max-sm:grid items-center">
                         <div>
                             <h1 className="mb-5 text-3xl font-bold max-lg:text-xl">
-                                Uploaded Vedio List
+                                Uploaded Video List
                             </h1>
                         </div>
 

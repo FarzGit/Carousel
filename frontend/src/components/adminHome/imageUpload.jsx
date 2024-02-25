@@ -100,7 +100,7 @@ const navigate = useNavigate()
             
 
             <div className='button-div'>
-                <button onClick={handleSubmit} className='btn font-medium p-1 rounded-md'>Launch</button>
+                <button onClick={handleSubmit} className='btn font-medium p-1 rounded-md'>Upload</button>
             </div>
 
 

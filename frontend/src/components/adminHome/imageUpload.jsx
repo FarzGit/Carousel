@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 
 
-function adminHome() {
+function AdminHome() {
 
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [title, setTitle] = useState('');
@@ -109,4 +109,4 @@ const navigate = useNavigate()
     );
 }
 
-export default adminHome;
+export default AdminHome;

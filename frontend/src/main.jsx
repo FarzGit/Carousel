@@ -9,6 +9,7 @@ import AdminNavBar from './components/adminNavBar/AdminNavBar'
 
 import AdminLogin from "./components/adminLogin/adminLogin"
 import AdminVedioList from './components/adminVedioList/adminVedioList.jsx'
+import AdminSettings from './components/adminSettings/settings.jsx'
 
 
 const router = createBrowserRouter(
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
           
         <Route path="/image-Upload" element={<AdminHome/>}/>
         <Route  path="/admin-list" element={<AdminVedioList/>} />
+        <Route  path="/admin-settings" element={<AdminSettings/>} />
         
     </Route>
   )

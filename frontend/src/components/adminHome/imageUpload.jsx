@@ -8,58 +8,32 @@ import { toast } from 'react-toastify';
 
 
 
-function adminHome() {
-
+function AdminHome() {
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [title, setTitle] = useState('');
-    
-const navigate = useNavigate()
-    const handleFileChange = (event) => {
-        setSelectedVideo(event.target.files[0]);
+
+    const handleFileChange = (e) => {
+        console.log("changed");
+        const file = e.target.files[0];
+        setSelectedVideo(file);
+        // Extract file name and set it as title
+        setTitle(file.name);
     };
 
-    const handleTitleChange = (event) => {
-        setTitle(event.target.value);
+    const handleTitleChange = (e) => {
+        setTitle(e.target.value);
     };
 
-
-    const handleSubmit = async () => {
-        try {
-
-        if (!title.trim()) {
-            toast.error('Title is required.');
-            return;
-        }
-
-        if (!selectedVideo) {
-            toast.error('Video is required.');
-            return;
-        }
-
-
-
-
-            const formData = new FormData();
-            formData.append('video_file', selectedVideo);
-            formData.append('title', title);
-
-            const response = await axios.post('https://carousal-backend.onrender.com/api/upload/', formData);
-
-            console.log(response.data); 
-            navigate('/admin-list')
-        } catch (error) {
-            console.error('Error posting video and title:', error);
-        }
+    const handleSubmit = () => {
+        // Handle video upload logic
+        console.log("Video uploaded:", selectedVideo);
     };
 
     return (
-
         <>
-         <AdminNavBar/>
-            <div className=' main flex justify-center m-3 '>
-
-
-                <div className="custom-file-upload ">
+            <AdminNavBar />
+            <div className='main flex justify-center m-3'>
+                <div className="custom-file-upload">
                     <label htmlFor="file" className="custom-file-label">
                         <div className="icon">
                             <svg viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg">
@@ -75,38 +49,25 @@ const navigate = useNavigate()
                             <span>Click to upload video</span>
                         </div>
                     </label>
-
-
                     <input id="file" type="file" accept="video/*" onChange={handleFileChange} />
-
                 </div>
             </div>
-
             <div className='flex justify-center'>
                 <input onChange={handleTitleChange} value={title} className='h-[40px] ml-[10px] mr-[10px] p-2 w-[350px] rounded-md mt-[20px] '  type="text" placeholder='Enter Video Title' />
             </div>
             <div className='vedio-div'>
-
-
                 {selectedVideo && (
                     <video width="300" height="200" controls>
                         <source src={URL.createObjectURL(selectedVideo)} type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                 )}
-
             </div>
-
-            
-
             <div className='button-div'>
-                <button onClick={handleSubmit} className='btn font-medium p-1 rounded-md'>Launch</button>
+                <button onClick={handleSubmit} className='btn font-medium p-1 rounded-md'>Upload</button>
             </div>
-
-
         </>
-
     );
-}
+};
 
-export default adminHome;
+export default AdminHome;

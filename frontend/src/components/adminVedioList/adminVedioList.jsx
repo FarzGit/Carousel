@@ -38,6 +38,9 @@ function adminVedioList() {
             console.error('Error deleting video:', error);
         }
     };
+    const handleView = async (id) => {
+        window.alert('This feature will be coming soon..');
+    };
 
 
 
@@ -56,7 +59,7 @@ function adminVedioList() {
                     <div className="flex justify-around max-sm:grid items-center">
                         <div>
                             <h1 className="mb-5 text-3xl font-bold max-lg:text-xl">
-                                Uploaded Video List
+                                Videos
                             </h1>
                         </div>
 
@@ -65,12 +68,9 @@ function adminVedioList() {
                     <table className="min-w-full bg-white border border-gray-300 mt-3">
                         <thead>
                             <tr className="bg-gray-100">
-                                <th className="border border-gray-300 p-2 justify-center">sl.no</th>
-
-                                <th className="border border-gray-300 p-2 justify-center">Name</th>
-                                <th className="border border-gray-300 p-2 flex items-center justify-center">
-                                    Action
-                                </th>
+                                <th className="border border-gray-300 p-2 justify-center">No</th>
+                                <th className="border border-gray-300 p-2 justify-center">Title</th>
+                                <th className="border border-gray-300 p-2 flex items-center justify-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -88,6 +88,12 @@ function adminVedioList() {
                                             className=" h-10 w-20 hover:bg-red-700 bg-black rounded-lg text-white hover:scale-105"
                                         >
                                             Delete
+                                        </button>
+                                        <button
+                                            onClick={() => handleView(video.id)}
+                                            className=" h-10 w-20 hover:bg-red-700 bg-black rounded-lg text-white hover:scale-105"
+                                        >
+                                            View
                                         </button>
 
                                     </td>

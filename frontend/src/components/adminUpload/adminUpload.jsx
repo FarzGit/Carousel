@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useState } from "react";
-import "./imageUpload.css";
+import "./adminUpload.css";
 import AdminNavBar from "../adminNavBar/AdminNavBar";
 
-function imageUpload() {
+function AdminUpload() {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [title, setTitle] = useState("");
 
@@ -85,4 +85,4 @@ function imageUpload() {
   );
 }
 
-export default imageUpload;
+export default AdminUpload;

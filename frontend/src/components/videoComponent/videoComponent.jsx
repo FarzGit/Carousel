@@ -44,7 +44,7 @@ const VideoLoop = () => {
 
   return (
     <div className="w-full h-screen flex justify-center items-center">
-      <video id="video" className="w-full h-full object-cover" autoPlay muted>
+      <video id="video" className="w-full h-full object-cover" autoPlay>
         <source src={videoUrls[currentVideoIndex]} type="video/mp4" />
         Your browser does not support the video tag.
       </video>

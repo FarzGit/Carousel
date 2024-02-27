@@ -10,7 +10,7 @@ function AdminNavBar() {
             <Link to="/adminList" className="font-medium cursor-pointer">
               Home
             </Link>
-            <Link to="/imageUpload" className="font-medium cursor-pointer">
+            <Link to="/adminUpload" className="font-medium cursor-pointer">
               Upload
             </Link>
             <Link to="/adminSettings" className="font-medium cursor-pointer">

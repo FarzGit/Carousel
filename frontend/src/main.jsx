@@ -8,7 +8,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import AdminHome from "./components/imageUpload/imageUpload.jsx";
+import AdminHome from "./components/adminUpload/adminUpload.jsx";
 import VideoLoop from "./components/videoComponent/videoComponent";
 import AdminLogin from "./components/adminLogin/adminLogin";
 import AdminVedioList from "./components/adminVedioList/adminVedioList.jsx";
@@ -19,9 +19,9 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />}>
       <Route path="/" element={<VideoLoop />} />
       <Route path="/adminLogin" element={<AdminLogin />} />
-      <Route path="/ImageUpload" element={<AdminHome />} />
-      <Route path="/AdminList" element={<AdminVedioList />} />
-      <Route path="/AdminSettings" element={<AdminSettings />} />
+      <Route path="/adminUpload" element={<AdminHome />} />
+      <Route path="/adminList" element={<AdminVedioList />} />
+      <Route path="/adminSettings" element={<AdminSettings />} />
     </Route>
   )
 );

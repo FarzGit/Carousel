@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useState } from 'react';
-import './adminHome.css'
+import './imageUpload.css'
 import axios from 'axios';
 import AdminNavBar from '../adminNavBar/AdminNavBar';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 
 
-function AdminHome() {
+function imageUpload() {
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [title, setTitle] = useState('');
 
@@ -70,4 +70,4 @@ function AdminHome() {
     );
 };
 
-export default AdminHome;
+export default imageUpload;

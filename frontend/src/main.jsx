@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter,createRoutesFromElements,Route,RouterProvider} from 'react-router-dom'
-import AdminHome from "./components/adminHome/imageUpload.jsx"
+import AdminHome from "./components/imageUpload/imageUpload.jsx"
 import VideoLoop from './components/videoComponent/videoComponent'
 import AdminNavBar from './components/adminNavBar/AdminNavBar'
 

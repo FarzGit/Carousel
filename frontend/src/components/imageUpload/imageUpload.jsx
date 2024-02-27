@@ -1,10 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useState } from "react";
 import "./imageUpload.css";
-import axios from "axios";
 import AdminNavBar from "../adminNavBar/AdminNavBar";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 
 function imageUpload() {
   const [selectedVideo, setSelectedVideo] = useState(null);

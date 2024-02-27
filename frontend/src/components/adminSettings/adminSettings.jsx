@@ -5,7 +5,9 @@ function AdminSettings() {
   return (
     <>
       <AdminNavBar />
+      <center>
       <div>settings page will be coming soon..</div>
+      </center>
     </>
   );
 }
